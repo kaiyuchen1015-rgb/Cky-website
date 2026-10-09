@@ -1,0 +1,338 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --paper: #f8f7f4;
+  --ink: #25232b;
+  --accent: #7868c8;
+  --line: rgba(37, 35, 43, .13);
+  --max-width: 1220px;
+}
+* { box-sizing: border-box; }
+html { min-height: 100%; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: 'DM Sans', 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+.page-width { width: min(var(--max-width), calc(100% - 88px)); margin-inline: auto; }
+
+/* Simple fixed navigation */
+.site-header { position: sticky; top: 0; z-index: 10; border-bottom: 1px solid rgba(37,35,43,.08); background: rgba(248,247,244,.86); backdrop-filter: blur(18px); }
+.nav-shell { width: min(1360px, calc(100% - 72px)); min-height: 84px; margin: auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+.brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; font-family: 'Manrope', sans-serif; font-size: 17px; font-weight: 800; letter-spacing: -.045em; white-space: nowrap; }
+.brand-icon { display: block; width: 32px; height: 32px; object-fit: contain; }
+.nav-links { display: flex; align-items: center; gap: 10px; list-style: none; padding: 0; margin: 0; }
+.nav-links a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 100px; color: #5e5a65; text-decoration: none; font-size: 15px; font-weight: 600; transition: background .22s ease, color .22s ease, transform .22s ease; }
+.nav-links a:hover { color: var(--ink); background: #ece8f7; transform: translateY(-2px); }
+.nav-links a.is-active { color: var(--ink); background: #e9e4f8; }
+.menu-toggle { display: none; }
+
+/* Cursor paint: layered, saturated ribbons and droplets */
+.paint-canvas { position: fixed; inset: 0; z-index: 30; width: 100%; height: 100%; pointer-events: none; mix-blend-mode: multiply; }
+
+/* Home */
+.home-page { min-height: calc(100vh - 85px); display: flex; align-items: center; }
+.hero { width: 100%; display: grid; grid-template-columns: 1fr .9fr; align-items: center; gap: clamp(50px, 8vw, 130px); padding: 66px 0 80px; }
+.hero-copy { padding-left: clamp(0px, 3vw, 50px); }
+h1, h2, p, figure { margin-top: 0; }
+h1, h2 { font-family: 'Manrope', 'Segoe UI', sans-serif; }
+.hero h1, .page-title, .contact-page h1 { margin-bottom: 30px; font-size: clamp(58px, 7.2vw, 112px); line-height: .99; letter-spacing: -.085em; font-weight: 600; }
+h1 span, .page-title span, .contact-page h1 span { color: var(--accent); }
+.hero-copy p { margin: 0; font-size: clamp(21px, 2vw, 28px); line-height: 1.65; letter-spacing: -.035em; color: #5c5864; }
+.hero-visual { justify-self: end; width: 100%; max-width: 500px; padding: 16px; border: 1px solid rgba(37,35,43,.12); border-radius: 8px; background: #fffefa; box-shadow: 0 30px 90px rgba(39,31,58,.12); transform: rotate(1deg); transition: transform .4s ease, box-shadow .4s ease; }
+.hero-visual:hover { transform: rotate(0) translateY(-6px); box-shadow: 0 36px 100px rgba(39,31,58,.16); }
+.original-wechat-image { display: block; width: 100%; max-height: 590px; min-height: 300px; object-fit: contain; border-radius: 3px; }
+
+/* Quotes */
+.inner-page { padding-top: 72px; padding-bottom: 90px; }
+.page-title { margin-bottom: 56px; font-size: clamp(52px, 6.6vw, 92px); }
+.quote-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 18px; }
+.quote-card { position: relative; min-height: 210px; display: flex; flex-direction: column; align-items: flex-start; padding: 30px; overflow: hidden; border: 1px solid var(--line); border-radius: 10px; background: rgba(255,254,250,.78); transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease, background .3s ease; }
+.quote-card:hover { transform: translateY(-6px); border-color: rgba(120,104,200,.45); box-shadow: 0 24px 48px rgba(39,31,58,.09); background: #fffefa; }
+.quote-mark { height: 38px; color: var(--accent); font-family: Georgia, serif; font-size: 60px; line-height: .95; }
+.quote-card blockquote { margin: 8px 0 28px; font-family: 'Manrope', sans-serif; font-size: clamp(20px, 1.65vw, 25px); line-height: 1.4; font-weight: 600; letter-spacing: -.045em; }
+.quote-card cite { margin-top: auto; color: #686370; font-size: 16px; font-style: normal; font-weight: 600; }
+.quote-card-featured { grid-column: span 2; background: #eeebf7; border-color: transparent; }
+.quote-card-featured blockquote { max-width: 780px; font-size: clamp(23px, 2.1vw, 32px); }
+
+/* Project ideas */
+.project-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px; }
+.project-card { position: relative; min-height: 210px; padding: 30px 32px; overflow: hidden; border: 1px solid var(--line); border-radius: 10px; background: rgba(255,254,250,.78); transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
+.project-card:hover { transform: translateY(-5px); border-color: rgba(120,104,200,.45); box-shadow: 0 22px 44px rgba(39,31,58,.08); }
+.project-featured { background: #eeebf7; border-color: transparent; }
+.project-number { display: inline-block; margin-bottom: 26px; color: var(--accent); font-size: 17px; font-weight: 700; }
+.project-card h2 { margin-bottom: 12px; font-size: clamp(24px, 2.3vw, 34px); line-height: 1.15; letter-spacing: -.06em; }
+.project-card p { max-width: 490px; margin: 0; color: #686370; font-size: 18px; line-height: 1.55; }
+.project-card:last-child { grid-column: span 2; }
+
+/* Contact */
+.contact-page { min-height: calc(100vh - 85px); display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding-top: 80px; padding-bottom: 110px; }
+.contact-page h1 { margin-bottom: 40px; font-size: clamp(64px, 9vw, 128px); }
+.email-link { display: inline-flex; align-items: center; gap: 22px; flex-wrap: wrap; padding-bottom: 12px; border-bottom: 2px solid var(--accent); text-decoration: none; font-size: clamp(22px, 3.7vw, 48px); font-weight: 600; letter-spacing: -.05em; transition: color .25s ease, border-color .25s ease; }
+.email-link span { color: var(--accent); transition: transform .25s ease; }
+.email-link:hover { color: var(--accent); }
+.email-link:hover span { transform: translate(5px, -5px); }
+
+@media (max-width: 900px) {
+  .page-width { width: min(100% - 48px, var(--max-width)); }
+  .nav-shell { width: calc(100% - 48px); }
+  .hero { gap: 42px; }
+  .hero h1 { font-size: clamp(56px, 8vw, 78px); }
+  .quote-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .quote-card-featured { grid-column: span 2; }
+}
+@media (max-width: 640px) {
+  .page-width, .nav-shell { width: calc(100% - 36px); }
+  .nav-shell { min-height: 72px; }
+  .brand { gap: 9px; font-size: 15px; }
+  .brand-icon { width: 29px; height: 29px; }
+  .menu-toggle { width: 44px; height: 44px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; border: 1px solid var(--line); border-radius: 50%; background: transparent; cursor: pointer; }
+  .menu-toggle span { display: block; width: 17px; height: 2px; border-radius: 2px; background: var(--ink); transition: transform .2s ease; }
+  .menu-toggle[aria-expanded="true"] span:first-child { transform: translateY(4px) rotate(45deg); }
+  .menu-toggle[aria-expanded="true"] span:last-child { transform: translateY(-4px) rotate(-45deg); }
+  .nav-links { position: absolute; top: calc(100% - 1px); left: 0; right: 0; display: none; align-items: stretch; flex-direction: column; gap: 4px; padding: 12px 18px 18px; border-bottom: 1px solid var(--line); background: rgba(248,247,244,.98); }
+  .nav-links.is-open { display: flex; }
+  .nav-links a { min-height: 48px; padding-inline: 17px; font-size: 16px; }
+  .home-page { min-height: auto; }
+  .hero { grid-template-columns: 1fr; gap: 38px; padding: 62px 0 66px; }
+  .hero-copy { padding: 0; }
+  .hero h1 { font-size: clamp(56px, 14vw, 84px); }
+  .hero-copy p { font-size: 22px; }
+  .hero-visual { justify-self: center; max-width: 470px; padding: 11px; }
+  .original-wechat-image { min-height: 200px; max-height: 480px; }
+  .inner-page { padding-top: 54px; padding-bottom: 60px; }
+  .page-title { margin-bottom: 35px; font-size: clamp(48px, 12vw, 72px); }
+  .quote-grid, .project-grid { grid-template-columns: 1fr; gap: 13px; }
+  .quote-card, .quote-card-featured { grid-column: auto; min-height: 185px; padding: 25px; }
+  .quote-card blockquote { font-size: 23px; }
+  .quote-card-featured blockquote { font-size: 25px; }
+  .project-card, .project-card:last-child { grid-column: auto; min-height: 185px; padding: 25px; }
+  .project-number { margin-bottom: 19px; }
+  .project-card h2 { font-size: 27px; }
+  .project-card p { font-size: 17px; }
+  .contact-page { min-height: calc(100vh - 73px); padding-top: 50px; padding-bottom: 70px; }
+  .contact-page h1 { margin-bottom: 34px; font-size: clamp(62px, 14vw, 90px); }
+  .email-link { gap: 12px; font-size: clamp(20px, 5.7vw, 30px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+  .paint-canvas { display: none; }
+}
+
+/* ==================================================
+   Useless Machine — Q版金毛和紫色开关
+   ================================================== */
+
+/* 首页布局 */
+.home-page {
+  display: block;
+  min-height: auto;
+}
+
+.hero {
+  min-height: min(850px, calc(100vh - 85px));
+}
+
+/* 模块标题 */
+.useless-section {
+  padding: 10px 0 100px;
+}
+
+.useless-section > h2 {
+  margin: 0 0 30px;
+  text-align: center;
+  font-size: clamp(34px, 4.5vw, 54px);
+  font-weight: 700;
+  letter-spacing: -.065em;
+}
+
+/* 机器卡片 */
+.useless-machine {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 28px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #fffefa;
+  box-shadow: 0 24px 70px rgba(39, 31, 58, .08);
+}
+
+.machine-stage {
+  min-height: 245px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* 【修改 1】原来开关和金毛隔得太远，现在紧贴布局 */
+  gap: 0;
+}
+
+/* 紫色开关 */
+.machine-switch-area {
+  flex: 0 0 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.machine-switch {
+  padding: 10px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.switch-track {
+  display: flex;
+  align-items: center;
+  width: 72px;
+  height: 38px;
+  padding: 4px;
+  border-radius: 100px;
+  background: #dedbe5;
+  transition: background .25s ease;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, .10);
+}
+
+.switch-knob {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .15);
+  transition: transform .28s cubic-bezier(.2, .8, .2, 1);
+}
+
+/* 开启时变成紫色 */
+.useless-machine.is-on .switch-track {
+  background: var(--accent);
+}
+
+.useless-machine.is-on .switch-knob {
+  transform: translateX(34px);
+}
+
+.switch-state {
+  margin-top: 5px;
+  color: #77717f;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .12em;
+}
+
+.useless-machine.is-on .switch-state {
+  color: var(--accent);
+}
+
+/* Q版金毛 */
+.retriever {
+  flex: 0 1 280px;
+  width: 280px;
+  max-width: 52%;
+  position: relative;
+  animation: retriever-float 3.5s ease-in-out infinite;
+
+  /* 【修改 2】负边距让金毛整体靠近开关 */
+  margin-left: -70px;
+}
+
+.retriever-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* 金毛摇尾巴 */
+.dog-tail {
+  transform-box: view-box;
+  transform-origin: 201px 132px;
+  animation: golden-tail-wag .45s ease-in-out infinite alternate;
+}
+
+/* 【修改 3】爪子围绕肩膀旋转，尽量保持手臂与身体连接 */
+.dog-paw {
+  transform-box: view-box;
+  transform-origin: 41.4% 54.1%;
+  transition: transform .48s cubic-bezier(.2, .8, .2, 1);
+}
+
+/* 【修改 4】金毛伸爪关开关，不再整只爪子大幅平移 */
+.retriever.is-reaching .dog-paw {
+  transform: rotate(32deg);
+}
+
+/* 金毛轻轻浮动 */
+@keyframes retriever-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* 摇尾巴动画 */
+@keyframes golden-tail-wag {
+  from {
+    transform: rotate(-8deg);
+  }
+
+  to {
+    transform: rotate(10deg);
+  }
+}
+
+/* 手机适配 */
+@media (max-width: 640px) {
+  .hero {
+    min-height: auto;
+  }
+
+  .useless-section {
+    padding-bottom: 65px;
+  }
+
+  .useless-section > h2 {
+    margin-bottom: 22px;
+  }
+
+  .useless-machine {
+    padding: 16px 10px;
+    border-radius: 14px;
+  }
+
+  .machine-stage {
+    min-height: 200px;
+    gap: 0;
+  }
+
+  .machine-switch-area {
+    flex: 0 0 72px;
+  }
+
+  .retriever {
+    flex-basis: 220px;
+    max-width: 62%;
+
+    /* 【修改 5】手机上也让金毛靠近开关 */
+    margin-left: -48px;
+  }
+
+  /* 【修改 6】手机端沿用围绕肩膀旋转的动作 */
+  .retriever.is-reaching .dog-paw {
+    transform: rotate(32deg);
+  }
+}
