@@ -1,5 +1,38 @@
 /* Purple cursor glow + simple page navigation. */
 (() => {
+  const themeToggle = document.createElement('button');
+  const themeStoreKey = 'vivi-site-theme';
+  let theme = 'day';
+
+  try {
+    theme = localStorage.getItem(themeStoreKey) === 'night' ? 'night' : 'day';
+  } catch (_) {}
+
+  document.documentElement.dataset.theme = theme;
+  themeToggle.type = 'button';
+  themeToggle.className = 'theme-toggle';
+  themeToggle.setAttribute('aria-pressed', String(theme === 'night'));
+
+  function updateThemeToggle() {
+    const isNight = theme === 'night';
+    themeToggle.setAttribute('aria-label', isNight ? 'Switch to day mode' : 'Switch to night mode');
+    themeToggle.title = isNight ? 'Switch to day mode' : 'Switch to night mode';
+    themeToggle.innerHTML = isNight
+      ? '<svg viewBox="0 0 40 40" aria-hidden="true"><g class="sun-rays"><path d="M20 2v5M20 33v5M2 20h5M33 20h5M7.3 7.3l3.6 3.6m18.2 18.2 3.6 3.6m0-25.4-3.6 3.6m-18.2 18.2-3.6 3.6"/></g><circle class="sun-disc" cx="20" cy="20" r="10.5"/><circle class="sun-eye" cx="16.5" cy="18.5" r="1"/><circle class="sun-eye" cx="23.5" cy="18.5" r="1"/><path class="sun-smile" d="M16.5 22.5q3.5 4 7 0"/></svg>'
+      : '<svg viewBox="0 0 40 40" aria-hidden="true"><path class="moon-disc" d="M27.8 27.1A15.3 15.3 0 0 1 13 8.2 15.5 15.5 0 1 0 31.8 27c-1.3.3-2.6.3-4-.1Z"/><circle class="moon-star" cx="29.5" cy="10.5" r="1.5"/><circle class="moon-star" cx="34" cy="17" r="1"/></svg>';
+  }
+
+  updateThemeToggle();
+  document.querySelector('.nav-shell')?.appendChild(themeToggle);
+  themeToggle.addEventListener('click', () => {
+    theme = theme === 'night' ? 'day' : 'night';
+    document.documentElement.dataset.theme = theme;
+    themeToggle.setAttribute('aria-pressed', String(theme === 'night'));
+    updateThemeToggle();
+    try {
+      localStorage.setItem(themeStoreKey, theme);
+    } catch (_) {}
+  });
   const currentPage = (
     location.pathname.split('/').pop() || 'index.html'
   ).toLowerCase();
