@@ -336,3 +336,97 @@ h1 span, .page-title span, .contact-page h1 span { color: var(--accent); }
     transform: rotate(32deg);
   }
 }
+/* Refined quote collection */
+.quote-grid {
+  counter-reset: quote-card;
+  gap: 20px;
+}
+.quote-card {
+  counter-increment: quote-card;
+  min-height: 238px;
+  padding: 32px;
+  border-color: rgba(37, 35, 43, .09);
+  border-radius: 14px;
+  background: linear-gradient(145deg, rgba(255,254,250,.96), rgba(248,247,244,.82));
+  box-shadow: 0 8px 26px rgba(39,31,58,.035);
+}
+.quote-card::after {
+  content: counter(quote-card, decimal-leading-zero);
+  position: absolute;
+  right: 25px;
+  bottom: 22px;
+  color: rgba(37, 35, 43, .26);
+  font-family: 'Manrope', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .12em;
+}
+.quote-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(120,104,200,.32);
+  box-shadow: 0 22px 46px rgba(39,31,58,.09);
+}
+.quote-mark {
+  height: 42px;
+  font-size: 66px;
+  opacity: .82;
+}
+.quote-card blockquote {
+  margin: 12px 0 30px;
+  font-size: clamp(20px, 1.7vw, 26px);
+  line-height: 1.48;
+  letter-spacing: -.04em;
+}
+.quote-card cite {
+  padding-top: 13px;
+  border-top: 1px solid rgba(37, 35, 43, .1);
+  color: #77717f;
+  font-size: 14px;
+  letter-spacing: .015em;
+}
+.quote-card-featured {
+  grid-column: span 2;
+  min-height: 270px;
+  padding: 38px;
+  border-color: rgba(120,104,200,.12);
+  background: radial-gradient(ellipse at 90% 0%, rgba(255,255,255,.82), transparent 42%), linear-gradient(135deg, #efecf8, #e9e4f5);
+}
+.quote-card-featured::after { color: rgba(120,104,200,.52); }
+.quote-card-featured blockquote {
+  max-width: 760px;
+  font-size: clamp(24px, 2.2vw, 34px);
+  line-height: 1.42;
+}
+@media (max-width: 640px) {
+  .quote-grid { gap: 14px; }
+  .quote-card, .quote-card-featured {
+    min-height: 200px;
+    padding: 27px;
+  }
+  .quote-card-featured { min-height: 230px; }
+  .quote-card::after { right: 21px; bottom: 18px; }
+  .quote-card cite { font-size: 13px; }
+}
+/* Keep every quote card on the same visual level */
+.quote-grid { grid-auto-rows: 1fr; }
+.quote-card, .quote-card-featured {
+  grid-column: auto;
+  min-height: 238px;
+  padding: 32px;
+  border: 1px solid rgba(37, 35, 43, .09);
+  background: linear-gradient(145deg, rgba(255,254,250,.96), rgba(248,247,244,.82));
+}
+.quote-card-featured blockquote {
+  max-width: none;
+  font-size: clamp(20px, 1.7vw, 26px);
+}
+.quote-mark { color: #7868c8; }
+@media (max-width: 900px) {
+  .quote-card-featured { grid-column: auto; }
+}
+@media (max-width: 640px) {
+  .quote-card, .quote-card-featured {
+    min-height: 200px;
+    padding: 27px;
+  }
+}
