@@ -1,95 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quotes</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8f7f4">
+  <title>Quotes — My First Website</title>
+  <link rel="icon" href="plain-image-32x31-69b9d3-rectangle.png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="nav.js" defer></script>
 </head>
 <body>
-
-    <div class="grid">
-        <article class="quote">
-            <blockquote>
-                <p>I think, therefore I am.</p>
-            </blockquote>
-            <footer>
-                <cite>René Descartes</cite>, <span class="source">Deepseek</span>
-            </footer>
-        </article>
-
-        <article class="quote">
-            <blockquote>
-                <p>That which does not kill us makes us stronger.</p>
-            </blockquote>
-            <footer>
-                <cite>Friedrich Nietzsche</cite>, <span class="source">Deepseek</span>
-            </footer>
-        </article>
-
-        <article class="quote">
-            <blockquote>
-                <p>Nothing is impossible to a willing heart.</p>
-            </blockquote>
-            <footer>
-                <cite>John Heywood</cite>, <span class="source">Deepseek</span>
-            </footer>
-        </article>
-
-        <article class="quote">
-            <blockquote>
-                <p>In the middle of difficulty lies opportunity.</p>
-            </blockquote>
-            <footer>
-                <cite>Albert Einstein</cite>, <span class="source">Deepseek</span>
-            </footer>
-        </article>
-
-        <article class="quote">
-            <blockquote>
-                <p>Imagination is more important than knowledge.</p>
-            </blockquote>
-            <footer>
-                <cite>Albert Einstein</cite>, <span class="source">Deepseek</span>
-            </footer>
-        </article>
-
-        <article class="quote">
-            <blockquote>
-                <p>Happiness depends upon ourselves.</p>
-            </blockquote>
-            <footer>
-                <cite>Aristotle</cite>, <span class="source">Deepseek</span>
-            </footer>
-        </article>
-
-        <article class="quote">
-            <blockquote>
-                <p>Simplicity is the ultimate sophistication.</p>
-            </blockquote>
-            <footer>
-                <cite>Leonardo da Vinci</cite>, <span class="source">Deepseek</span>
-            </footer>
-        </article>
-
-        <article class="quote">
-            <blockquote>
-                <p>No pain, no gain.</p>
-            </blockquote>
-            <footer>
-                <cite>Benjamin Franklin</cite>, <span class="source">Deepseek</span>
-            </footer>
-        </article>
-
-        <article class="quote">
-            <blockquote>
-                <p>The greatest glory in living lies not in never falling, but in rising every time we fall.</p>
-            </blockquote>
-            <footer>
-                <cite>Nelson Mandela</cite>, <span class="source">Deepseek</span>
-            </footer>
-        </article>
-    </div>
-
+  <header class="site-header">
+    <nav class="nav-shell" aria-label="Main navigation">
+      <a class="brand" href="index.html" aria-label="My First Website — Home"><img class="brand-icon" src="dog.svg" alt="" width="32" height="32"><span>My First Website</span></a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
+      <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="quotes.html">Quotes</a></li><li><a href="project.html">Project</a></li><li><a href="machine.html">Machine</a></li><li><a href="contact.html">Contact</a></li></ul>
+    </nav>
+  </header>
+  <main class="page-width inner-page">
+    <h1 class="page-title">Words to <span>remember.</span></h1>
+    <section class="quote-grid" aria-label="Inspirational quotes">
+      <article class="quote-card"><span class="quote-mark">“</span><blockquote>I think, therefore I am.</blockquote><cite>René Descartes</cite></article>
+      <article class="quote-card"><span class="quote-mark">“</span><blockquote>That which does not kill us makes us stronger.</blockquote><cite>Friedrich Nietzsche</cite></article>
+      <article class="quote-card"><span class="quote-mark">“</span><blockquote>Nothing is impossible to a willing heart.</blockquote><cite>John Heywood</cite></article>
+      <article class="quote-card"><span class="quote-mark">“</span><blockquote>In the middle of difficulty lies opportunity.</blockquote><cite>Albert Einstein</cite></article>
+      <article class="quote-card"><span class="quote-mark">“</span><blockquote>Imagination is more important than knowledge.</blockquote><cite>Albert Einstein</cite></article>
+      <article class="quote-card"><span class="quote-mark">“</span><blockquote>Happiness depends upon ourselves.</blockquote><cite>Aristotle</cite></article>
+      <article class="quote-card"><span class="quote-mark">“</span><blockquote>Simplicity is the ultimate sophistication.</blockquote><cite>Leonardo da Vinci</cite></article>
+      <article class="quote-card"><span class="quote-mark">“</span><blockquote>No pain, no gain.</blockquote><cite>Benjamin Franklin</cite></article>
+      <article class="quote-card"><span class="quote-mark">“</span><blockquote>Stay hungry, stay foolish.</blockquote><cite>Steve Jobs</cite></article>
+      <article class="quote-card"><span class="quote-mark">“</span><blockquote>Well done is better than well said.</blockquote><cite>Benjamin Franklin</cite></article>
+      <article class="quote-card"><span class="quote-mark">“</span><blockquote>Fortune favors the bold.</blockquote><cite>Virgil</cite></article>
+      <article class="quote-card"><span class="quote-mark">“</span><blockquote>The best way to predict the future is to invent it.</blockquote><cite>Alan Kay</cite></article>
+      <article class="quote-card"><span class="quote-mark">“</span><blockquote>Do what you can, with what you have, where you are.</blockquote><cite>Theodore Roosevelt</cite></article>
+      <article class="quote-card"><span class="quote-mark">“</span><blockquote>The secret of getting ahead is getting started.</blockquote><cite>Mark Twain</cite></article>
+      <article class="quote-card quote-card-featured"><span class="quote-mark">“</span><blockquote>The greatest glory in living lies not in never falling, but in rising every time we fall.</blockquote><cite>Nelson Mandela</cite></article>
+    </section>
+  </main>
 </body>
 </html>
