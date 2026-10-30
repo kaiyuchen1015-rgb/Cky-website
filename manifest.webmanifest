@@ -1,0 +1,15 @@
+{
+  "id": "./index.html",
+  "name": "My First Website — Vivi",
+  "short_name": "Vivi",
+  "description": "Vivi's personal website about dogs, projects, and ideas.",
+  "lang": "en",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f8f7f4",
+  "theme_color": "#f8f7f4",
+  "icons": [
+    { "src": "./app-icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

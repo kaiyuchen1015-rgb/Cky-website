@@ -7,6 +7,8 @@
   <title>Quotes — My First Website</title>
   <link rel="icon" href="plain-image-32x31-69b9d3-rectangle.png">
   <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="app-icon.svg">
   <script src="nav.js" defer></script>
 </head>
 <body>
@@ -37,5 +39,6 @@
       <article class="quote-card quote-card-featured"><span class="quote-mark">“</span><blockquote>The greatest glory in living lies not in never falling, but in rising every time we fall.</blockquote><cite>Nelson Mandela</cite></article>
     </section>
   </main>
+  <script>if ("serviceWorker" in navigator) { window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch((error) => console.error("Service worker registration failed:", error))); }</script>
 </body>
 </html>

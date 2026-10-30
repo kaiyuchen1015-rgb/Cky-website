@@ -7,6 +7,8 @@
   <title>Project — My First Website</title>
   <link rel="icon" href="plain-image-32x31-69b9d3-rectangle.png">
   <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="app-icon.svg">
   <script src="nav.js" defer></script>
 </head>
 <body>
@@ -27,5 +29,6 @@
       <article class="project-card"><span class="project-number">05</span><h2>Little Habit Tracker</h2><p>A simple way to build routines, one small step at a time.</p></article>
     </section>
   </main>
+  <script>if ("serviceWorker" in navigator) { window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch((error) => console.error("Service worker registration failed:", error))); }</script>
 </body>
 </html>
