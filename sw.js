@@ -1,8 +1,8 @@
-const CACHE_NAME = 'vivi-pwa-v2';
+const CACHE_NAME = 'vivi-pwa-v6';
 const APP_SHELL = [
   './', './index.html', './quotes.html', './project.html', './machine.html',
   './contact.html', './styles.css', './nav.js', './dog.svg',
-  './plain-image-32x31-69b9d3-rectangle.png', './%E5%BE%AE%E4%BF%A1%E5%A4%B4%E5%83%8F.jpg', './app-icon.svg', './manifest.webmanifest'
+  './plain-image-32x31-69b9d3-rectangle.png', './%E5%BE%AE%E4%BF%A1%E5%A4%B4%E5%83%8F.jpg', './app-icon-192.png', './app-icon-512.png', './apple-touch-icon.png', './manifest.webmanifest'
 ];
 
 self.addEventListener('install', (event) => {
